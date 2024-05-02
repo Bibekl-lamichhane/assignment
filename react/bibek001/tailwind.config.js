@@ -16,9 +16,15 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        'iblack':'#1C1C1C',
+        'iwhitish':'#D4D4D2',
+        'iorange' :'#FF9500',
+        'igrey':'#505050'
+      },
     },
+  
   },
   darkMode: "class",
   plugins: [nextui()],
 };
-

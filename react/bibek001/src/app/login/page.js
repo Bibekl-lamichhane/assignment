@@ -7,7 +7,7 @@ import Link from 'next/link';
 export const page = () => {
     return (
         <div>
-            <NavBar userName="User"/>
+            <NavBar user="Bibek Lamichhane"/>
             <div className='flex justify-center content-center m-20'>
 
 

@@ -1,17 +1,17 @@
 'use client'
 import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Button} from "@nextui-org/react";
 import Logo from "./logo";
+import Link from "next/link";
 
 const NavBar=(props)=>{
   
   return (
     <Navbar>
     <NavbarBrand>
-    
-    <Logo userName="User"/>  
+    <Logo user="Bibek Lamichhane"/>  
     </NavbarBrand>
-    <NavbarContent className="hidden sm:flex gap-4">
+    <NavbarContent className="flex gap-4">
       <NavbarItem>
         <Link color="foreground" href="#">
           Features

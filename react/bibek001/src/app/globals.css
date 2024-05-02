@@ -1,5 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
+.outer-container {
+    width: 70vw; /* 80% of the viewport width */
+    height: 100vh; /* 80% of the viewport height */
+    margin: auto; /* Center the container horizontally */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the inner content horizontally */
+    align-items: center; /* Center the inner content vertically */
+    background-color: #302f2f; /* Example background color */
+  }
+  
+  .inner-content {
+    /* Styles for inner content */
+  }
+  
