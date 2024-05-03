@@ -9,7 +9,7 @@ const NavBar=(props)=>{
   return (
     <Navbar>
     <NavbarBrand>
-    <Logo user="Bibek Lamichhane"/>  
+    <Logo user="Online calculator"/>  
     </NavbarBrand>
     <NavbarContent className="flex gap-4">
       <NavbarItem>
@@ -19,12 +19,12 @@ const NavBar=(props)=>{
       </NavbarItem>
       <NavbarItem isActive>
         <Link href="#" aria-current="page">
-          Customers
+          Home
         </Link>
       </NavbarItem>
       <NavbarItem>
         <Link color="foreground" href="#">
-          Integrations
+          Modes
         </Link>
       </NavbarItem>
     </NavbarContent>

@@ -5,9 +5,10 @@ import { Checkbox } from "@nextui-org/react";
 import Link from 'next/link';
 
 export const page = () => {
+    
     return (
         <div>
-            <NavBar user="Bibek Lamichhane"/>
+            <NavBar user="Online Calculator"/>
             <div className='flex justify-center content-center m-20'>
 
 
@@ -33,10 +34,11 @@ export const page = () => {
                         <Checkbox className='text-xs' defaultSelected color="default">Remember me?</Checkbox>
                         <Link href='/register' className='text-xs'>Dont have an account?</Link>
                     </div><br/>
-                    <div className="flex  justify-center items-center ">
-                        <Button type="submit" color="primary">
+                    <div className="flex  justify-center items-center  bg-igrey rounded-3xl">
+                    <Link href='/calculator' className=' text-xl text-iorange'>Login</Link>
+                        {/* <Button onClick={handelClick}type="submit" color="primary">
                             Login
-                        </Button>
+                        </Button> */}
                             </div>
                     </div>
                 </div>
