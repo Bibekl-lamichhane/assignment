@@ -1,13 +1,24 @@
+
 'use client'
 import React, { useState } from 'react';
 import './calculator.css';
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
-
-
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";  
 const Calculator = () => {
   const [display, setDisplay] = useState('');
+  const operators = ['+', '-', '*', '/','%'];      //operators defined
+
+  const calculatePercentage = () => {
+    let result;
+    try {
+      result = (parseFloat(display) / 100).toString();
+    } catch (error) {
+      result = 'Error';
+    }
+    setDisplay(result);
+  };
 
   const handleClick = (value) => {
+    const lastChar = display.slice(-1);
     if (value === '=') {
       try {
         setDisplay(eval(display).toString());
@@ -20,33 +31,46 @@ const Calculator = () => {
     else if (value === '+/-') {
       
       setDisplay(-display);
+
+    } else if (operators.includes(value)) {
+      // Allow operator input only if last character is not an operator and display is not empty
+      if (display !== '' && !operators.includes(lastChar)) {
+        setDisplay(display + value);
+      }
+    } 
+    else if (value === '%') {
+      calculatePercentage();
     }else {
       setDisplay(display + value);
     }
   };
 
+
   return (
     <div>
-      <Navbar className='bg-igrey text-iorange rounded-3xl'>
+      <Navbar>
       <NavbarBrand>
-        
-        <p className="font-bold text-inherit">iCalculator</p>
+  
+        <p className="font-bold text-inherit">ICalculator</p>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-       
-      </NavbarContent>
+      
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link className=' text-white'href="/login">Logout</Link>
+        {/* <NavbarItem className="hidden lg:flex">
+          <Link href="#">Login</Link>
+        </NavbarItem> */}
+        <NavbarItem>
+          <Button as={Link} color="primary" href="/login" variant="flat">
+            Logout
+          </Button>
         </NavbarItem>
-    
       </NavbarContent>
     </Navbar>
+
     < div className='iphone'>
   
     <div className=" inner-container  bg-black p-8 ">
       {/* output start */}
-      <div className="output  bg-black text-white text-4xl " >{display || '0'}</div>
+      <div className="output  bg-black text-white text-4xl  text-right" >{display || '0'}</div>
       {/* output end */}
 
       {/* calculate button */}
@@ -57,7 +81,7 @@ const Calculator = () => {
         <button onClick={() => handleClick('+/-')} className=" px-2 py-2 rounded-full text-3xl bg-iwhitish text-black m-10px p-8px">
           +/-
         </button>
-        <button onClick={() => handleClick('%')} className=" px-2 py-2 rounded-full text-3xl bg-iwhitish text-black m-10px p-8px">
+        <button onClick={() => calculatePercentage()} className=" px-2 py-2 rounded-full text-3xl bg-iwhitish text-black m-10px p-8px">
           %
         </button>
         <button onClick={() => handleClick('/')} className="px-2 py-2 rounded-full text-3xl text-white bg-iorange m-10px p-8px">
@@ -117,5 +141,4 @@ const Calculator = () => {
   );
 };
 
-export default Calculator;
-
+export default Calculator
